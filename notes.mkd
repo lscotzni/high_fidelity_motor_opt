@@ -1,0 +1,40 @@
+# --- To-Do:---
+- modify line search for mesh manipulation vs the EM solver
+    - relaxation parameter for EM: 0.5
+    - relaxation for mesh movement: ?
+    
+- refine mesh around air-gap in the rotor to add more elements
+    - need to add elements so that the mesh manipulation converges
+- check the geometric DV bounds based on motor mesh dimensions
+- need to find battery/motor/total aircraft mass for airframe mass in new objective
+    - include pusher motor mass in total aircraft; we are optimizing for a torque demand in the hover condition
+
+# --- Notes: ---
+    - edge_deltas from FFD goes into the boundary input model, and spits out uhat_bc, which is used for
+        the actual mesh manipulation algorithm
+    - A_z nodal evaluations are done OUTSIDE of Ru's module, meaning we need access to:
+        - A_z (csdl variable, done)
+        - function space of A_z (V)
+            - we need to store this somewhere so we have access to it
+        - nodal coordinates (coming from parametrization, done)
+        - CONFIRM THE CURRENT WORK WITH RU
+    
+    - INPUTS FOR TORQUE AND RPM (LIFTING ROTOR):
+        - Nominal: 828.30709113 Nm, 1167.78540849 RPM (before gearbox)
+        - OEI: 1576.94692793 Nm, 1509.24913956 RPM (before gearbox)
+    
+    - INPUTS FOR TORQUE AND RPM (PUSHER ROTOR) before gearbox
+        - Nominal: 1792.64 Nm, 882.44959923 RPM
+
+# --- Directory Structure: ---
+- mesh/geometry generator python file
+- mesh files
+- shape parameter python file
+- *mesh independence test directory*
+    - python run file
+    - mesh files of different mesh sizes (need to update motor geometry inputs for this)
+- *name of test case*
+    - run file
+    - dashboard python file
+    - data file for B-H curve
+    - MAKE SURE PATH TO INPUT DATA IS CORRECT
