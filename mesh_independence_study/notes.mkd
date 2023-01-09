@@ -1,0 +1,10 @@
+**Grid Independence Study**
+*Code/Run Structure*
+
+- setup inputs in "input_parameters.py"
+- "conda activate" into env w/ legacy fenics
+    - msh2xdmf uses legacy
+- run "generate_geom_files.py"
+    - generates geometry for ALL combinations of mesh sizes
+- "conda activate" into env w/ fenicsx
+- run "run_grid_indep.py"

@@ -1,0 +1,117 @@
+
+ ==============================
+ S N O P T  7.7.7    (Feb 2021)
+ ==============================
+
+ SNMEMB EXIT 100 -- finished successfully
+ SNMEMB INFO 104 -- memory requirements estimated
+
+ Trial version of SNOPT -- for evaluation or academic purposes only
+
+
+
+ Nonlinear constraints       2     Linear constraints       0
+ Nonlinear variables        12     Linear variables         0
+ Jacobian  variables        12     Objective variables     12
+ Total constraints           2     Total variables         12
+
+
+
+ The user has defined      24   out of      24   constraint gradients.
+ The user has defined      12   out of      12   objective  gradients.
+
+
+ Major Minors     Step   nCon Feasible  Optimal  MeritFunction     nS Penalty
+     0     14               1  1.8E+01  1.4E+00  5.8121225E-01     10           r
+     1      2  7.0E-01      2  3.9E+00  2.3E-01  1.0437896E+00     10 2.3E-04   rl
+     2      2  5.0E-01      4  2.2E+00  1.7E-02  7.2381009E-01     11 2.3E-04 s
+
+ SNOPTC EXIT  40 -- terminated after numerical difficulties
+ SNOPTC INFO  43 -- cannot satisfy the general constraints
+
+ Problem name                 pareto_f
+ No. of iterations                  18   Objective           -1.7980749652E+11
+ No. of major iterations             3   Linear    obj. term  0.0000000000E+00
+ Penalty parameter           2.283E-04   Nonlinear obj. term -1.7980749652E+11
+ User function calls (total)        16
+ No. of superbasics                 11   No. of basic nonlinears             1
+ No. of degenerate steps             0   Percentage                       0.00
+ Max x                      11 7.2E+00   Max pi                      1 6.0E-05
+ Max Primal infeas          13 2.1E+02   Max Dual infeas            11 2.5E+10
+ Nonlinear constraint violn    2.1E+02
+
+
+
+ Solution printed on file   9
+
+ Time for MPS input                             0.00 seconds
+ Time for solving problem                    3961.62 seconds
+ Time for solution output                       0.00 seconds
+ Time for constraint functions               4265.19 seconds
+ Time for objective function                    0.00 seconds
+
+ ==============================
+ S N O P T  7.7.7    (Feb 2021)
+ ==============================
+
+ SNMEMB EXIT 100 -- finished successfully
+ SNMEMB INFO 104 -- memory requirements estimated
+
+ Trial version of SNOPT -- for evaluation or academic purposes only
+
+
+
+ Nonlinear constraints       2     Linear constraints       0
+ Nonlinear variables        12     Linear variables         0
+ Jacobian  variables        12     Objective variables     12
+ Total constraints           2     Total variables         12
+
+
+
+ The user has defined      24   out of      24   constraint gradients.
+ The user has defined      12   out of      12   objective  gradients.
+
+
+ Major Minors     Step   nCon Feasible  Optimal  MeritFunction     nS Penalty
+     0     14               1  1.8E+01  1.4E+00  5.8121225E-01     10           r
+     1      2  7.0E-01      2  3.9E+00  2.3E-01  1.0437896E+00     10 2.3E-04   rl
+     2      1  7.5E-01      5  1.6E+00  1.5E-02  6.3510711E-01     10 2.3E-04 s
+     3      1  1.0E+00      7  4.9E-02  1.4E-02  5.5147582E-01     10 2.3E-04
+     4      1  1.0E+00      9  5.9E-04  1.6E-02  5.5094361E-01     10 2.3E-04  m
+     5      2  1.0E+00     10  4.4E-02  1.4E-02  5.4571889E-01      9 2.3E-04
+     6      1  1.0E+00     12  8.3E-01  8.0E-03  5.2660560E-01      9 2.3E-04  m
+     7      2  1.0E+00     14  9.1E-04  9.5E-03  5.2313483E-01      8 2.3E-04  m
+     8      1  1.0E+00     16  1.4E-03  7.5E-03  5.2077356E-01      8 2.3E-04  m
+     9      3  1.0E+00     18  1.3E-03  4.4E-03  5.2014035E-01      6 2.3E-04  m
+
+ Major Minors     Step   nCon Feasible  Optimal  MeritFunction     nS Penalty
+    10      1  1.0E+00     20  5.0E-02  4.6E-03  5.1606713E-01      6 2.3E-04  m
+    11      4  1.0E+00     22  4.1E-05  7.2E-03  5.1595349E-01      7 2.3E-04  m
+    12      3  3.5E-01     33  3.1E-03  5.9E-03  5.1366254E-01      7 2.3E-04  m
+    13      1  1.9E-01     44  1.7E-03  5.7E-03  5.1274565E-01      7 2.3E-04
+    14      2  2.9E-01     55  3.1E-03  2.8E-03  5.1156832E-01      6 2.3E-04  M
+    15      1  2.5E-02     65  3.1E-03  2.8E-03  5.1143602E-01      6 2.3E-04
+
+ SNOPTC EXIT  40 -- terminated after numerical difficulties
+ SNOPTC INFO  43 -- cannot satisfy the general constraints
+
+ Problem name                 pareto_f
+ No. of iterations                  40   Objective           -1.3337453719E+10
+ No. of major iterations            16   Linear    obj. term  0.0000000000E+00
+ Penalty parameter           2.293E-04   Nonlinear obj. term -1.3337453719E+10
+ User function calls (total)        77
+ No. of superbasics                  6   No. of basic nonlinears             0
+ No. of degenerate steps             0   Percentage                       0.00
+ Max x                      11 6.1E+00   Max pi                      1 1.4E-04
+ Max Primal infeas          13 1.0E+03   Max Dual infeas            11 2.2E+09
+ Nonlinear constraint violn    1.0E+03
+
+
+
+ Solution printed on file   9
+
+ Time for MPS input                             0.00 seconds
+ Time for solving problem                   51818.44 seconds
+ Time for solution output                       0.00 seconds
+ Time for constraint functions              52439.25 seconds
+ Time for objective function                    0.00 seconds
