@@ -60,21 +60,21 @@ class MotorDashboard(ld.BaseDash):
 
         self.save_variable('torque_delta_constraint', history=True)
 
-        # self.add_frame(1,
-        #                height_in=8.,
-        #                width_in=12.,
-        #                ncols=6,
-        #                nrows = 3,
-        #                wspace=0.4,
-        #                hspace=0.4)
+        self.add_frame(1,
+                       height_in=8.,
+                       width_in=12.,
+                       ncols=6,
+                       nrows = 3,
+                       wspace=0.4,
+                       hspace=0.4)
 
-        # self.add_frame(2,
-        #                height_in=8.,
-        #                width_in=12.,
-        #                ncols=6,
-        #                nrows = 4,
-        #                wspace=0.4,
-        #                hspace=0.4)
+        self.add_frame(2,
+                       height_in=8.,
+                       width_in=12.,
+                       ncols=6,
+                       nrows = 4,
+                       wspace=0.4,
+                       hspace=0.4)
 
     def plot(self,
              frames,
@@ -112,12 +112,11 @@ class MotorDashboard(ld.BaseDash):
         # get the matplotlib ax method
         ax_subplot = frame[0, 0]
         x_axis = data_dict_history['simulator']['global_ind']
-        efficiency = data_dict_history['simulator']['efficiency']
-        sns.lineplot(x=x_axis, y=np.array(efficiency).flatten(), ax=ax_subplot)
-        ax_subplot.set_ylabel('Objective: efficiency')
-        ax_subplot.set_ylim(-0.5, 1.05)
-        print('efficiency:')
-        print(efficiency)
+        total_mass = data_dict_history['simulator']['total_mass']
+        motor_mass = data_dict_history['simulator']['motor_mass']
+        sns.lineplot(x=x_axis, y=   np.array(total_mass).flatten(), ax=ax_subplot, label='total mass')
+        sns.lineplot(x=x_axis, y=   np.array(motor_mass).flatten()*1e2, ax=ax_subplot, label='motor mass * 1e2')
+        ax_subplot.set_ylabel('Total Mass (kg)')
 
         # get the matplotlib ax method
         ax_subplot = frame[0, 1]
@@ -139,7 +138,6 @@ class MotorDashboard(ld.BaseDash):
         print(output_torque)
         print(torque_delta)
         input_load_torque = self.input_load_torque * np.ones_like(x_axis)
-        sns.lineplot(x=x_axis, y=np.array(torque_delta).flatten(), marker='*', ax=ax_subplot, label='Torque Constraint')
         sns.lineplot(x=x_axis, y=np.array(em_torque).flatten(), ax=ax_subplot, label='EM Torque')
         sns.lineplot(x=x_axis, y=np.array(output_torque).flatten(), marker='*', ax=ax_subplot, label='Output Torque')
         sns.lineplot(x=x_axis, y=np.array(input_load_torque).flatten(), ax=ax_subplot, label='Input Load Torque')
@@ -149,12 +147,18 @@ class MotorDashboard(ld.BaseDash):
 
         # get the matplotlib ax method
         ax_subplot = frame[0:2, 3:6]
-        input_power = data_dict_history['simulator']['avg_input_power']
-        output_power = data_dict_history['simulator']['output_power']
+        input_power = data_dict_history['simulator']['avg_input_power'] / 1000.
+        output_power = data_dict_history['simulator']['output_power'] / 1000.
+        copper_loss = data_dict_history['simulator']['copper_loss'] / 1000.
+        hyst_loss = data_dict_history['simulator']['hysteresis_loss'] / 1000.
+        ec_loss = data_dict_history['simulator']['eddy_current_loss'] / 1000.
         x_axis = list(range(len(input_power)))
         sns.lineplot(x=x_axis, y=np.array(input_power).flatten(), ax=ax_subplot, label='Input Power')
         sns.lineplot(x=x_axis, y=np.array(output_power).flatten(), ax=ax_subplot, label='Output Power')
-        ax_subplot.set_ylabel('Input & Output Power (W)')
+        sns.lineplot(x=x_axis, y=np.array(copper_loss).flatten(), ax=ax_subplot, label='Copper Loss')
+        sns.lineplot(x=x_axis, y=np.array(hyst_loss).flatten(), ax=ax_subplot, label='Hysteresis Loss')
+        sns.lineplot(x=x_axis, y=np.array(ec_loss).flatten(), ax=ax_subplot, label='Eddy Current Loss')
+        ax_subplot.set_ylabel('Input & Output Power (kW)')
 
         ax_subplot = frame[2, 3:5]
         copper_loss = data_dict_history['simulator']['copper_loss']
@@ -284,6 +288,7 @@ class MotorDashboard(ld.BaseDash):
         # if not pyvista.OFF_SCREEN:
         #     plotter.show()
         # frame.write()
+        efficiency = data_dict_history['simulator']['efficiency']
         not_nan_list = []
         for i in range(len(x_axis)):
             if not np.isnan(efficiency[i]) and efficiency[i] > 0:
@@ -293,6 +298,6 @@ class MotorDashboard(ld.BaseDash):
 
 
 if __name__ == '__main__':
-    dashboard = MotorDashboard(input_load_torque=828.30709113/4.)
+    dashboard = MotorDashboard(input_load_torque=1792.64 / 4.)
     # dashboard.use_timestamp() # to use older timestamps
     dashboard.visualize_most_recent(show=True)

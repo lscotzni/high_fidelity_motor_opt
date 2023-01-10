@@ -21,8 +21,8 @@ mesh_file_base = 'motor_mesh'
 mesh_file_base_dir = mesh_file_dir + '/' + mesh_file_base
 
 # region mesh size list
-l1_list = [6.e-3, 1.e-2]
-l2_list = [3.e-3, 1.e-2]
-l3_list = [1.5e-3, 5.e-3]
-l4_list = [5.e-4, 1.e-3]
+l1_list = [6.e-3, 1.e-2, 3e-2]
+l2_list = [3.e-3, 6.e-3, 1.e-2]
+l3_list = [1.5e-3, 3.e-3, 5.e-3]
+l4_list = [5.e-4, 1.e-3, 2.e-3]
 # endregion

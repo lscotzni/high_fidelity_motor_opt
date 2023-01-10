@@ -290,6 +290,7 @@ class MotorDashboard(ld.BaseDash):
                 not_nan_list.append(i+1) # paraview indexing starts at 1
 
         print(not_nan_list)
+        # print(output_power)
 
 
 if __name__ == '__main__':

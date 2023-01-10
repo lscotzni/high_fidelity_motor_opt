@@ -60,21 +60,21 @@ class MotorDashboard(ld.BaseDash):
 
         self.save_variable('torque_delta_constraint', history=True)
 
-        # self.add_frame(1,
-        #                height_in=8.,
-        #                width_in=12.,
-        #                ncols=6,
-        #                nrows = 3,
-        #                wspace=0.4,
-        #                hspace=0.4)
+        self.add_frame(1,
+                       height_in=8.,
+                       width_in=12.,
+                       ncols=6,
+                       nrows = 3,
+                       wspace=0.4,
+                       hspace=0.4)
 
-        # self.add_frame(2,
-        #                height_in=8.,
-        #                width_in=12.,
-        #                ncols=6,
-        #                nrows = 4,
-        #                wspace=0.4,
-        #                hspace=0.4)
+        self.add_frame(2,
+                       height_in=8.,
+                       width_in=12.,
+                       ncols=6,
+                       nrows = 4,
+                       wspace=0.4,
+                       hspace=0.4)
 
     def plot(self,
              frames,
